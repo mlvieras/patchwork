@@ -1,0 +1,26 @@
+extends: 'airbnb-typescript/base'
+parser: '@typescript-eslint/parser'
+plugins:
+  - "@typescript-eslint"
+parserOptions:
+  project: './tsconfig.json'
+settings:
+  import/parsers:
+    "@typescript-eslint/parser":
+      - .ts
+      - .tsx
+  import/resolver:
+    typescript: {}
+rules:
+  prefer-arrow-callback: 'error'
+  func-style: ['error', 'expression']
+  # When using methods with underscores inside a class, you need to enable this rule
+  no-underscore-dangle:
+    - error
+    - allowAfterThis: true
+  linebreak-style: 0
+  # Sometimes it's more convenient to have named exports even
+  # though only one thing has to be exported.
+  import/prefer-default-export: 'off'
+  import/no-default-export: 'error'
+  import/extensions: 'off'
